@@ -1,4 +1,4 @@
-" --- General Settings 
+" ----------------General Settings----------------------------------- 
 
 set termguicolors
 set tabstop=4 
@@ -27,10 +27,11 @@ set scrolloff=999
 set noshowmode
 set updatetime=250 
 set encoding=UTF-8
+set clipboard+=unnamedplus
 set mouse=a
 
 
-" --- Plugins
+" -----------------Plugins--------------------------------------------
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -50,28 +51,30 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
-
+" -------------------------------------------------------------------------
 
 lua require('luaconfigs')
 
-nmap <F8> :TagbarToggle<CR>
+nnoremap <F8> :TagbarToggle<CR>
 
 colorscheme gruvbox
+
+" -----------------------------------------------------
 
 " --- air-line
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline_theme='dark'
 
-"--- webdevicons
+"--- webdevicons for airline
 let g:webdevicons_enable_airline_tabline = 1
 let g:webdevicons_enable_airline_statusline = 1
 
+" --- airline symbols
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-" --- airline symbols
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
 let g:airline_right_sep = ''
@@ -80,14 +83,34 @@ let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.linenr = ''
 
+"  -------------------------------------------------------
 
-" --- Remaps
-"
+" --- Creating mapleader to space
 let mapleader = " "
+
+" --- NvimTree file browsing
 nnoremap <leader>n :NvimTreeToggle<Cr>
+
+
 " move among buffers with CTRL
 nnoremap <leader>b :bnext<CR>
+
+
+" --- Telescope finding files
 nnoremap <leader>f :Telescope find_files<Cr>
+
+" --- moving between window panes
+nnoremap <leader>h :wincmd h<Cr>
+nnoremap <leader>j :wincmd j<Cr>
+nnoremap <leader>k :wincmd k<Cr>
+nnoremap <leader>l :wincmd l<Cr>
+
+" --- clearing all tabs except the current tab
+nnoremap to :tabonly<CR>
+
+" --- substitute mode using % (for whole file)
+nnoremap <leader>s :%s/
+
 
 
 colorscheme gruvbox
