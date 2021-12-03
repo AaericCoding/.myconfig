@@ -14,21 +14,27 @@ set noswapfile
 set nobackup
 set undodir=~/.config/nvim/undodir
 set undofile
-set incsearch
 set inccommand=split
-set invhlsearch
+
+" Searching
+set incsearch
 set ignorecase
+set invhlsearch
 set smartcase
+
+
 set nowrap
 set splitbelow
 set splitright
-set hidden
+set hidden              " Enable jumping into files in a search buffer
 set scrolloff=999
 set noshowmode
 set updatetime=250 
 set encoding=UTF-8
 set clipboard+=unnamedplus
 set mouse=a
+set backspace=eol,start,indent  " Make backspace a bit nicer
+set wildmenu            " Visual prompt for command completion
 
 
 " -----------------Plugins--------------------------------------------
