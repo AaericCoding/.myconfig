@@ -48,7 +48,7 @@ Plug 'preservim/tagbar'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-
+" ---- Plug 'BurntSushi/ripgrep'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 
 Plug 'kyazdani42/nvim-tree.lua'
@@ -102,8 +102,12 @@ nnoremap <leader>n :NvimTreeToggle<Cr>
 nnoremap <leader>b :bnext<CR>
 
 
-" --- Telescope finding files
-nnoremap <leader>f :Telescope find_files<Cr>
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+
 
 " --- moving between window panes
 nnoremap <leader>h :wincmd h<Cr>
