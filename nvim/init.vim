@@ -1,14 +1,14 @@
 " ----------------General Settings----------------------------------- 
 
-set termguicolors
+set termguicolors           " use true color in the terminal
 set tabstop=4 
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set number
+set number                  " shows number lines
 set numberwidth=4
-set relativenumber
+set relativenumber          " shows line number relative to the current line
 set signcolumn=number
 set noswapfile
 set nobackup
@@ -32,62 +32,11 @@ set noshowmode
 set updatetime=250 
 set encoding=UTF-8
 set clipboard+=unnamedplus
-set mouse=a
+set mouse=a                     " can use mouse
 set backspace=eol,start,indent  " Make backspace a bit nicer
 set wildmenu            " Visual prompt for command completion
 
 
-" -----------------Plugins--------------------------------------------
-
-call plug#begin('~/.config/nvim/plugged')
-
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'vim-airline/vim-airline'
-Plug 'preservim/tagbar'
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
-" ---- Plug 'BurntSushi/ripgrep'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-
-Plug 'kyazdani42/nvim-tree.lua'
-
-Plug 'ryanoasis/vim-devicons'
-
-call plug#end()
-
-" -------------------------------------------------------------------------
-
-lua require('luaconfigs')
-
-nnoremap <F8> :TagbarToggle<CR>
-
-colorscheme gruvbox
-
-" -----------------------------------------------------
-
-" --- air-line
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-let g:airline_theme='dark'
-
-"--- webdevicons for airline
-let g:webdevicons_enable_airline_tabline = 1
-let g:webdevicons_enable_airline_statusline = 1
-
-" --- airline symbols
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
 
 "  -------------------------------------------------------
 
@@ -121,9 +70,63 @@ nnoremap to :tabonly<CR>
 " --- substitute mode using % (for whole file)
 nnoremap <leader>s :%s/
 
+nnoremap <F8> :TagbarToggle<CR>         " tagbar toggle
 
+colorscheme gruvbox                     " setting colorscheme to gruvbox
+
+
+
+" -----------------Plugins--------------------------------------------
+
+call plug#begin('~/.config/nvim/plugged')
+
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'preservim/tagbar'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+" ---- Plug 'BurntSushi/ripgrep'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+
+Plug 'kyazdani42/nvim-tree.lua'
+
+Plug 'ryanoasis/vim-devicons'
+
+call plug#end()
+
+" -------------------------------------------------------------------------
+
+lua require('luaconfigs')
 
 colorscheme gruvbox
+
+" -----------------------Airline------------------------------
+
+" --- air-line
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline_theme='dark'
+
+"--- webdevicons for airline
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+
+" --- airline symbols
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+
+"-------------------------------------------
 
 augroup LuaHighlight
   autocmd!
